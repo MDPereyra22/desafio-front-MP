@@ -31,24 +31,8 @@ const handleTareaCompleta = (index) =>{
   return (
     <div>
       <h1>Lista de tareas</h1>
-      <form onSubmit={handleSubmit}>
-        <input 
-        type="text"
-        placeholder='Escribe una tarea'
-        value={tarea} 
-        onChange={handleChange}
-        />
-        <button type='submit' >Agregar tarea</button>
-      </form>
-      <ul>
-        {tareas.map((tarea, index)=> (
-          <li key={index}
-              style={{ textDecoration: tarea.completa ? 'line-through' : 'none' }}
-              onClick={() => handleTareaCompleta(index)}
-          >{tarea.nombre}</li>
-        )
-        )}
-      </ul>
+      <AgregarTarea tarea={tarea} handleChange={handleChange} handleSubmit={handleSubmit}/>
+      <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta}/>
     </div>
   )
 }

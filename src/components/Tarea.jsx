@@ -1,14 +1,19 @@
 
-const Tarea = () => {
+const Tarea = ({ tarea, index, handleTareaCompleta }) => {
     return (
-        
+
         <div>
-            <span>
-                <label>Aquí habrá una tarea</label>
+            <span >
+                <label
+                    key={index}
+                    style={{ textDecoration: tarea.completa ? 'line-through' : 'none' }}
+                    onClick={() => handleTareaCompleta(index)}
+                >
+                    {tarea.nombre}
+                </label>
             </span>
-            <button> BORRAR TAREA</button>
         </div>
-        
+
     )
 }
 
