@@ -1,16 +1,14 @@
-import { ListItem, ListItemText, Checkbox } from '@mui/material';
-
 
 const Tarea = () => {
     return (
-        <>
-        <li>
+        
+        <div>
             <span>
                 <label>Aquí habrá una tarea</label>
             </span>
             <button> BORRAR TAREA</button>
-        </li>
-        </>
+        </div>
+        
     )
 }
 
