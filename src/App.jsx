@@ -16,10 +16,16 @@ const handleChange =(event)=>{
 const handleSubmit = (event) =>{
   event.preventDefault();
   if(tarea.trim() !== ''){
-    setTareas([...tareas, tarea])
+    setTareas([...tareas, {nombre: tarea, completa: false}])
     setTarea('');
     
   }
+}
+
+const handleTareaCompleta = (index) =>{
+  const tareasAcutualizadas = [...tareas]
+  tareasAcutualizadas[index] = {...tareasAcutualizadas[index], completa: !tareasAcutualizadas[index].completa}
+  setTareas(tareasAcutualizadas);
 }
 
   return (
@@ -36,7 +42,10 @@ const handleSubmit = (event) =>{
       </form>
       <ul>
         {tareas.map((tarea, index)=> (
-          <li key={index}>{index}{tarea}</li>
+          <li key={index}
+              style={{ textDecoration: tarea.completa ? 'line-through' : 'none' }}
+              onClick={() => handleTareaCompleta(index)}
+          >{tarea.nombre}</li>
         )
         )}
       </ul>
