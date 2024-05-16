@@ -6,6 +6,8 @@
 - Bonus+: Que esa misma página contenga un contador de tareas pendientes.
 - Bonus++: Utilizar cualquier librería UI (ej: MaterialUI, ReactBootstrap, CoreUI, etc)
 
+Prueba de funcionamiento de repositorio
+
 # React To-Do App
 
 Este es un proyecto de una aplicación simple de "To-Do" desarrollada en React.
