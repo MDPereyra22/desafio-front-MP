@@ -1,20 +1,24 @@
+import { TextField, Button, Box } from '@mui/material';
 
-const AgregarTarea = ({tarea, handleSubmit, handleChange}) => {
+
+const AgregarTarea = ({ tarea, handleSubmit, handleChange }) => {
     return (
-        <div>
+        <Box>
             <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    name='agregarTarea'
+                <TextField
+                    fullWidth
+                    variant='outlined'
                     value={tarea}
-                    placeholder='¿Qué tarea quieres hacer?' 
+                    label='¿Qué tarea quieres hacer?'
                     onChange={handleChange}
-                    />
+                />
 
-                <button type="submit">Agregar tarea</button>
+                <Button type="submit" variant="contained" color="primary" style={{ marginTop: '8px' }}>
+                    Agregar tarea
+                </Button>
             </form>
 
-        </div>
+        </Box>
     )
 };
 
