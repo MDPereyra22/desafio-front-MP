@@ -28,11 +28,13 @@ const handleTareaCompleta = (index) =>{
   setTareas(tareasAcutualizadas);
 }
 
+const contadorDePendientes = tareas.filter(tarea => !tarea.completa).length;
+
   return (
     <div>
       <h1>Lista de tareas</h1>
       <AgregarTarea tarea={tarea} handleChange={handleChange} handleSubmit={handleSubmit}/>
-      <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta}/>
+      <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} contadorDePendientes={contadorDePendientes}/>
     </div>
   )
 }
