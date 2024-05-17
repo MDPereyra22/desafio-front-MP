@@ -14,33 +14,35 @@ function App() {
   const [tarea, setTarea] = useState('');
 
 
-const handleChange =(event)=>{
-  setTarea(event.target.value)
-}
-
-const handleSubmit = (event) =>{
-  event.preventDefault();
-  if(tarea.trim() !== ''){
-    setTareas([...tareas, {nombre: tarea, completa: false}])
-    setTarea('');
-    
+  const handleChange = (event) => {
+    setTarea(event.target.value)
   }
-}
 
-const handleTareaCompleta = (index) =>{
-  const tareasAcutualizadas = [...tareas]
-  tareasAcutualizadas[index] = {...tareasAcutualizadas[index], completa: !tareasAcutualizadas[index].completa}
-  setTareas(tareasAcutualizadas);
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (tarea.trim() !== '') {
+      setTareas([...tareas, { nombre: tarea, completa: false }])
+      setTarea('');
 
-const contadorDePendientes = tareas.filter(tarea => !tarea.completa).length;
+    }
+  }
+
+  const handleTareaCompleta = (index) => {
+    const tareasAcutualizadas = [...tareas]
+    tareasAcutualizadas[index] = { ...tareasAcutualizadas[index], completa: !tareasAcutualizadas[index].completa }
+    setTareas(tareasAcutualizadas);
+  }
+
+  const contadorDePendientes = tareas.filter(tarea => !tarea.completa).length;
 
   return (
-    <div  style={{display:'flex', flexDirection: 'column', alignItems:'center'}}>
-      <h1>Lista de tareas</h1>
-      <AgregarTarea tarea={tarea} handleChange={handleChange} handleSubmit={handleSubmit}/>
-      <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} contadorDePendientes={contadorDePendientes}/>
-    </div>
+    <Container maxWidth="md">
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: 2, borderRadius: 2, padding: 2, bgcolor: 'Background', margin:2 }}>
+        <Typography variant='h3' gutterBottom>Lista de tareas</Typography>
+        <AgregarTarea tarea={tarea} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} contadorDePendientes={contadorDePendientes} />
+      </Box>
+    </Container>
   )
 }
 

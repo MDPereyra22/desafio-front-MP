@@ -11,7 +11,6 @@ const ListaDeTareas = ({ tareas, handleTareaCompleta, contadorDePendientes }) =>
             alignItems: 'center',
             marginTop: 2,
             width: '100%',
-            maxWidth: 360,
             bgcolor: 'background.paper',
             boxShadow: 3,
             borderRadius: 2
