@@ -2,9 +2,9 @@
 import { TextField, Button, Box } from '@mui/material';
 
 
-const AgregarTarea = ({ tarea, handleAgregarTarea, handleTareaChange }) => {
+const AgregarTarea = ({ tarea, handleSubmit, handleChange }) => {
     return (
-        <Box component='form' onSubmit={handleAgregarTarea}>
+        <Box component='form' onSubmit={handleSubmit}>
                 <TextField
                     fullWidth
                     multiline
@@ -13,13 +13,13 @@ const AgregarTarea = ({ tarea, handleAgregarTarea, handleTareaChange }) => {
                     value={tarea}
                     type="text"
                     label='¿Qué tarea querés hacer?'
-                    onChange={handleTareaChange}
+                    onChange={handleChange}
                     required                    
                 />
 
-                <Button type='submit' variant="contained" color="primary" style={{ marginTop: '8px' }}>
+                <Button type="submit" variant="contained" color="primary" style={{ marginTop: '8px' }}>
                     Agregar tarea
-                </Button>
+                </Button> 
         </Box>
     )
 };

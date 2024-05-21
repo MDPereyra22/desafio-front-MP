@@ -39,7 +39,7 @@ function App() {
     <Container maxWidth="md">
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: 2, borderRadius: 2, padding: 2, bgcolor: 'Background', margin:2 }}>
         <Typography variant='h3' gutterBottom>Lista de tareas</Typography>
-        <AgregarTarea tarea={tarea} handleTareaChange={handleTareaChange} handleAgregarTarea={handleAgregarTarea} />
+        <AgregarTarea tarea={tarea} handleChange={handleTareaChange} handleSubmit={handleAgregarTarea} />
         <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} />
       </Box>
     </Container>
