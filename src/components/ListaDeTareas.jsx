@@ -3,7 +3,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Tarea from "./Tarea";
 
-const ListaDeTareas = ({ tareas, handleTareaCompleta, contadorDePendientes }) => {
+const ListaDeTareas = ({ tareas, handleTareaCompleta }) => {
+    const contadorDePendientes = tareas.filter(tarea => !tarea.completa).length;
+    
     return (
         <Box sx={{
             display: 'flex',
@@ -24,7 +26,7 @@ const ListaDeTareas = ({ tareas, handleTareaCompleta, contadorDePendientes }) =>
                     key={index}
                     tarea={tarea}
                     index={index}
-                    handleTareaCompleta={handleTareaCompleta} />
+                    handleTareaCompleta={() => handleTareaCompleta(index)} />
             )
             )}
 

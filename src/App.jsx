@@ -14,11 +14,11 @@ function App() {
   const [tarea, setTarea] = useState('');
 
 
-  const handleChange = (event) => {
+  const handleTareaChange = (event) => {
     setTarea(event.target.value)
   }
 
-  const handleSubmit = (event) => {
+  const handleAgregarTarea = (event) => {
     event.preventDefault();
     if (tarea.trim() !== '') {
       setTareas([...tareas, { nombre: tarea, completa: false }])
@@ -33,14 +33,14 @@ function App() {
     setTareas(tareasAcutualizadas);
   }
 
-  const contadorDePendientes = tareas.filter(tarea => !tarea.completa).length;
+  
 
   return (
     <Container maxWidth="md">
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: 2, borderRadius: 2, padding: 2, bgcolor: 'Background', margin:2 }}>
         <Typography variant='h3' gutterBottom>Lista de tareas</Typography>
-        <AgregarTarea tarea={tarea} handleChange={handleChange} handleSubmit={handleSubmit} />
-        <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} contadorDePendientes={contadorDePendientes} />
+        <AgregarTarea tarea={tarea} handleTareaChange={handleTareaChange} handleAgregarTarea={handleAgregarTarea} />
+        <ListaDeTareas tareas={tareas} handleTareaCompleta={handleTareaCompleta} />
       </Box>
     </Container>
   )

@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
 import { ListItem, ListItemText, Box } from '@mui/material';
 
-const Tarea = ({ tarea, index, handleTareaCompleta }) => {
+const Tarea = ({ tarea, handleTareaCompleta }) => {
   const tareaCompletaColor = tarea.completa ? 'grey' : 'primary.main';
 
   const tareaStyles = {
@@ -19,9 +18,8 @@ const Tarea = ({ tarea, index, handleTareaCompleta }) => {
     <Box sx={tareaStyles}>
       <ListItem
         disablePadding
-        key={index}
         style={{ textDecoration: tarea.completa ? 'line-through' : 'none' }}
-        onClick={() => handleTareaCompleta(index)}
+        onClick={handleTareaCompleta}
       >
         <ListItemText primary={tarea.nombre} />
       </ListItem>
